@@ -54,6 +54,8 @@ function spotifySong() {
             for (let i = 0; i < results.length; i++) {
                 console.log("Artist(s): " + results[i].artists[0].name);
                 console.log("Song: " + results[i].name);
+                console.log("Preview: " + results[i].preview_url);
+                console.log("Album: " + results[i].album.name);
             }
 
         }
