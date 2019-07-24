@@ -35,6 +35,7 @@ function concertThis() {
             for(let i = 0; i < results.length; i++){
                 console.log("Venue: " + results[i].venue.name);
                 console.log("Venue Location: " + results[i].venue.city + ", " + results[i].venue.region + " " + results[i].venue.country);
+                console.log("Date: " + results[i].datetime);
             }
 
         }
