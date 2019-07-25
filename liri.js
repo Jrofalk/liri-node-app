@@ -15,11 +15,16 @@ switch (commands) {
         break;
 
     case "spotify-this-song":
-        spotifySong();
+        if (value) {
+            spotifySong(value);
+        }
+        else {
+            spotifySong("The Sign");
+        }
         break;
 
     case "movie-this":
-
+        movieThis();
         break;
 
     case "do-what-it-says":
@@ -42,8 +47,7 @@ function concertThis() {
         });
 }
 
-function spotifySong() {
-    var song = value;
+function spotifySong(song) {
     spotify.search({ type: 'track', query: song, limit: 1 }, function (err, data) {
         if (err) {
             return console.log('Error occurred: ' + err);
@@ -61,5 +65,31 @@ function spotifySong() {
         }
     });
 }
+
+function movieThis() {
+    var film = value;
+    axios.get("http://www.omdbapi.com/?t=" + film + "&y=&plot=short&apikey=trilogy&tomatoes=true").then(
+        function (response) {
+            let results = response.data;
+            console.log(response.data)
+            console.log("Title: " + results.Title);
+            console.log("Year: " + results.Year);
+            console.log("IMDB Rating: " + results.imdbRating);
+            console.log("Rotten Tomatoes Rating: " + results.tomatoRating);
+            console.log("Country: " + results.Country);
+            console.log("Language: " + results.Language);
+            console.log("Plot: " + results.Plot);
+            console.log("Featuring: " + results.Actors);
+        });
+    }
+
+        
+//Make sure to add piece where film defaults to "Mr. Nobody"
+//Figure out not defaulting to the 'The Sign"
+//Make sure to add link in portfolio
+
+
+
+
 
 
