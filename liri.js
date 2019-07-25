@@ -7,7 +7,7 @@ var spotify = new Spotify(keys.spotify);
 
 
 var commands = process.argv[2];
-var value = process.argv[3];
+var value = process.argv.slice(3).join(" ");
 
 switch (commands) {
     case "concert-this":
@@ -82,12 +82,14 @@ function movieThis() {
             console.log("Featuring: " + results.Actors);
         });
     }
-
-        
+     
 //Make sure to add piece where film defaults to "Mr. Nobody"
-//Figure out not defaulting to the 'The Sign"
-//Make sure to add link in portfolio
+//Figure out not defaulting to the 'The Sign" -  Figured it out, but get rid of console logs that show all the data
+//Make sure to add link in portfolio, then submit port. as part of assignment on bootcamp
 
+//Write read me with pictures
+
+//Fix port so that projects open in a separate tab
 
 
 
