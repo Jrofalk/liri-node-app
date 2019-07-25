@@ -19,7 +19,7 @@ switch (commands) {
             spotifySong(value);
         }
         else {
-            spotifySong("The Sign");
+            spotifySong("Ace of Base");
         }
         break;
 
