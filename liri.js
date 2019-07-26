@@ -4,7 +4,7 @@ var Spotify = require('node-spotify-api');
 var axios = require("axios");
 var keys = require("./keys.js");
 var spotify = new Spotify(keys.spotify);
-var moment = require ('moment');
+var moment = require('moment');
 
 
 var commands = process.argv[2];
@@ -25,7 +25,12 @@ switch (commands) {
         break;
 
     case "movie-this":
-        movieThis();
+        if (value) {
+            movieThis(value);
+        }
+        else {
+            mrNobody();
+        }
         break;
 
     case "do-what-it-says":
@@ -45,8 +50,6 @@ function concertThis() {
                 var date = results[i].datetime;
                 date = moment(date).format("MM/DD/YYYY");
                 console.log('Date: ' + date);
-                //Will need to add moment js to what is below in order to translate date into proper format, look at inquirergeocode.js from activities to see how to do this
-                //console.log("Date: " + results[i].datetime);
             }
         });
 }
@@ -85,10 +88,30 @@ function movieThis() {
             console.log("Plot: " + results.Plot);
             console.log("Featuring: " + results.Actors);
         });
-    }
-     
-//Make sure to add piece where film defaults to "Mr. Nobody"
-//'The Sign" -  Figured it out, but get rid of console logs that show all the data
+}
+
+
+function mrNobody() {
+    axios.get("http://www.omdbapi.com/?t=Mr+Nobody&y=&plot=short&apikey=trilogy&tomatoes=true").then(
+        function (response) {
+            let results = response.data;
+            console.log("Title: " + results.Title);
+            console.log("Year: " + results.Year);
+            console.log("IMDB Rating: " + results.imdbRating);
+            console.log("Rotten Tomatoes Rating: " + results.tomatoRating);
+            console.log("Country: " + results.Country);
+            console.log("Language: " + results.Language);
+            console.log("Plot: " + results.Plot);
+            console.log("Featuring: " + results.Actors);
+            console.log("If you haven't watched 'Mr. Nobody,' then you should: http://www.imdb.com/title/tt0485947/");
+            console.log("It's on Netflix!");
+        });
+}
+
+
+
+
+
 
 
 //Write read me with pictures
