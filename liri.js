@@ -4,6 +4,7 @@ var Spotify = require('node-spotify-api');
 var axios = require("axios");
 var keys = require("./keys.js");
 var spotify = new Spotify(keys.spotify);
+var moment = require ('moment');
 
 
 var commands = process.argv[2];
@@ -41,8 +42,11 @@ function concertThis() {
             for (let i = 0; i < results.length; i++) {
                 console.log("Venue: " + results[i].venue.name);
                 console.log("Venue Location: " + results[i].venue.city + ", " + results[i].venue.region + " " + results[i].venue.country);
+                var date = results[i].datetime;
+                date = moment(date).format("MM/DD/YYYY");
+                console.log('Date: ' + date);
                 //Will need to add moment js to what is below in order to translate date into proper format, look at inquirergeocode.js from activities to see how to do this
-                console.log("Date: " + results[i].datetime);
+                //console.log("Date: " + results[i].datetime);
             }
         });
 }
@@ -84,8 +88,8 @@ function movieThis() {
     }
      
 //Make sure to add piece where film defaults to "Mr. Nobody"
-//Figure out not defaulting to the 'The Sign" -  Figured it out, but get rid of console logs that show all the data
-//Make sure to add link in portfolio, then submit port. as part of assignment on bootcamp
+//'The Sign" -  Figured it out, but get rid of console logs that show all the data
+
 
 //Write read me with pictures
 
