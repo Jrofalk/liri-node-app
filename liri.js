@@ -7,7 +7,6 @@ var spotify = new Spotify(keys.spotify);
 var moment = require('moment');
 var fs = require('fs');
 
-
 var commands = process.argv[2];
 var value = process.argv.slice(3).join(" ");
 
@@ -88,7 +87,6 @@ function movieThis() {
             console.log("Featuring: " + results.Actors);
         });
 }
-
 
 function mrNobody() {
     axios.get("http://www.omdbapi.com/?t=Mr+Nobody&y=&plot=short&apikey=trilogy&tomatoes=true").then(
