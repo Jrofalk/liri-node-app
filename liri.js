@@ -5,6 +5,7 @@ var axios = require("axios");
 var keys = require("./keys.js");
 var spotify = new Spotify(keys.spotify);
 var moment = require('moment');
+var fs = require('fs');
 
 
 var commands = process.argv[2];
@@ -34,7 +35,7 @@ switch (commands) {
         break;
 
     case "do-what-it-says":
-
+        doThis();
         break;
 }
 
@@ -61,7 +62,6 @@ function spotifySong(song) {
         }
         else {
             let results = data.tracks.items;
-            console.log(results);
             for (let i = 0; i < results.length; i++) {
                 console.log("Artist(s): " + results[i].artists[0].name);
                 console.log("Song: " + results[i].name);
@@ -78,7 +78,6 @@ function movieThis() {
     axios.get("http://www.omdbapi.com/?t=" + film + "&y=&plot=short&apikey=trilogy&tomatoes=true").then(
         function (response) {
             let results = response.data;
-            console.log(response.data)
             console.log("Title: " + results.Title);
             console.log("Year: " + results.Year);
             console.log("IMDB Rating: " + results.imdbRating);
@@ -108,15 +107,19 @@ function mrNobody() {
         });
 }
 
+function doThis() {
+    fs.readFile('random.txt', "utf8", function (error, data) {
+        var text = data.split(',');
+
+        spotifySong(text[1]);
+    });
+}
 
 
 
 
 
 
-//Write read me with pictures
-
-//Fix port so that projects open in a separate tab
 
 
 
