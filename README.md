@@ -10,4 +10,4 @@ LIRI, Language Interpretation and Recognition Interface, is a command line node 
 ## Concert-this:
 
 
-[logo] https://github.com/Jrofalk/liri-node-app/blob/master/Images/concert-this.PNG "Logo Title Text 2"
+https://github.com/Jrofalk/liri-node-app/blob/master/Images/concert-this.PNG 
