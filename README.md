@@ -49,3 +49,12 @@ The movie-this command will allow LIRI to search the OMDB API for information re
 ![](https://github.com/Jrofalk/liri-node-app/blob/master/Images/do-what-it-says.PNG)
 
 Utilizing the above command will allow LIRI to use the information stored in the file "random.txt" and then call on another command. In this instance LIRI would use the spotify-this-song command to search for information regarding the song "I Want It That Way."
+
+## LIRI was builting using the following technologies:
+
+* Spotify API
+* Bands in Town Artist Events API
+* OMDB API
+* JS
+* Node.js
+* NPM Packages, including Axios, Moment, and DotEnv
