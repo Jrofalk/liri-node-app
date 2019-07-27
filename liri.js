@@ -44,11 +44,13 @@ function concertThis() {
         function (response) {
             let results = response.data;
             for (let i = 0; i < results.length; i++) {
+                console.log("==============================================");
                 console.log("Venue: " + results[i].venue.name);
                 console.log("Venue Location: " + results[i].venue.city + ", " + results[i].venue.region + " " + results[i].venue.country);
                 var date = results[i].datetime;
                 date = moment(date).format("MM/DD/YYYY");
                 console.log('Date: ' + date);
+                console.log("==============================================");
             }
         });
 }
@@ -61,10 +63,12 @@ function spotifySong(song) {
         else {
             let results = data.tracks.items;
             for (let i = 0; i < results.length; i++) {
+                console.log("==============================================");
                 console.log("Artist(s): " + results[i].artists[0].name);
                 console.log("Song: " + results[i].name);
                 console.log("Preview: " + results[i].preview_url);
                 console.log("Album: " + results[i].album.name);
+                console.log("==============================================");
             }
 
         }
@@ -76,6 +80,7 @@ function movieThis() {
     axios.get("http://www.omdbapi.com/?t=" + film + "&y=&plot=short&apikey=trilogy&tomatoes=true").then(
         function (response) {
             let results = response.data;
+            console.log("==============================================");
             console.log("Title: " + results.Title);
             console.log("Year: " + results.Year);
             console.log("IMDB Rating: " + results.imdbRating);
@@ -84,6 +89,7 @@ function movieThis() {
             console.log("Language: " + results.Language);
             console.log("Plot: " + results.Plot);
             console.log("Featuring: " + results.Actors);
+            console.log("==============================================");
         });
 }
 
@@ -91,6 +97,7 @@ function mrNobody() {
     axios.get("http://www.omdbapi.com/?t=Mr+Nobody&y=&plot=short&apikey=trilogy&tomatoes=true").then(
         function (response) {
             let results = response.data;
+            console.log("==============================================");
             console.log("Title: " + results.Title);
             console.log("Year: " + results.Year);
             console.log("IMDB Rating: " + results.imdbRating);
@@ -101,6 +108,7 @@ function mrNobody() {
             console.log("Featuring: " + results.Actors);
             console.log("If you haven't watched 'Mr. Nobody,' then you should: http://www.imdb.com/title/tt0485947/");
             console.log("It's on Netflix!");
+            console.log("==============================================");
         });
 }
 
